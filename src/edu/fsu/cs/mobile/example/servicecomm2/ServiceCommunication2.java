@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class ServiceCommunication2 extends Activity {
     
@@ -74,9 +73,16 @@ public class ServiceCommunication2 extends Activity {
     			pendingIntent = PendingIntent.getService(this, 0, myIntent, 0);    			
     		}
 			
-			Notification notif = new Notification(R.drawable.ic_launcher, tickerMessage, System.currentTimeMillis());
-			notif.setLatestEventInfo(this, "embarrassing_pic.png", actionMessage, pendingIntent);
-			notif.flags = Notification.FLAG_AUTO_CANCEL;
+    		Notification notif = new Notification.Builder(this)
+    			.setSmallIcon(R.drawable.ic_launcher)
+    			.setTicker(tickerMessage)
+    			.setWhen(System.currentTimeMillis())
+    			.setContentTitle("embarrassing_pic.png")
+    			.setContentText(actionMessage)
+    			.setContentIntent(pendingIntent)
+    			.setAutoCancel(true)
+    			.build();
+    				
 			manager.notify(NOTIFICATION_ID, notif);
     	}
     }

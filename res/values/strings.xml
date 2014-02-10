@@ -3,5 +3,7 @@
 
     <string name="hello">Hello World, ServiceCommunication1!</string>
     <string name="app_name">ServiceBroadcastActivityExample</string>
+    <string name="second_activity">This is the Second Activity</string>
+    <string name="start_service">Start Service</string>
 
 </resources>
